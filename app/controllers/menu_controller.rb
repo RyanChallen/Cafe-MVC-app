@@ -1,6 +1,7 @@
 class MenuController < ApplicationController
 
     before_action :setup_data
+    skip_before_action :verify_authenticity_token
 
     def index
         # render plain: "Meow"
@@ -9,7 +10,13 @@ class MenuController < ApplicationController
     end
 
     def create
-        render plain: "stuff and things"
+        puts params[:item]
+        @data << {:item => params[:item], :price => params[:price]}
+        render json: @data
+    end
+
+    def show
+        
     end
 
     private
