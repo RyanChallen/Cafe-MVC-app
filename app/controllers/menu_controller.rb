@@ -12,14 +12,14 @@ class MenuController < ApplicationController
     def create
         puts params[:item]
         @data << {:item => params[:item], :price => params[:price]}
-        render json: @data
+        redirect_to "/"
     end
 
     def show
         if @data[params[:id].to_i] != nil
             render json: @data[params[:id].to_i]
         else
-            render plain: "Value #{params[:id]} does not exist"
+            render plain: "Value #{params[:id]} does not exist."
         end
     end
 
