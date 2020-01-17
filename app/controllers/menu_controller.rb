@@ -1,10 +1,10 @@
 class MenuController < ApplicationController
 
     before_action :setup_data
-    skip_before_action :verify_authenticity_token
+    skip_before_action :verify_authenticity_token #NOT OK TO DO THIS IN PRODUCTION - SECURITY RISK
 
     def index
-        # render plain: "Meow"
+        #render plain: "Meow"
         #render html: "<h1>Le Menu</h1>".html_safe
         render json: @data
     end
@@ -16,7 +16,11 @@ class MenuController < ApplicationController
     end
 
     def show
-        
+        if @data[params[:id].to_i] != nil
+            render json: @data[params[:id].to_i]
+        else
+            render plain: "Value #{params[:id]} does not exist"
+        end
     end
 
     private
