@@ -1,0 +1,5 @@
+<h2><%= @data[:item].capitalize%></h2>
+
+<p>We currently have <%= @data[:quantity]%> in stock</p> 
+<p> Price: <%= "$%.2f" % @data[:price] %></p>
+<%= link_to "Home", root_path() %>

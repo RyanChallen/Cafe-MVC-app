@@ -3,4 +3,5 @@ Rails.application.routes.draw do
   get "/", to: "menu#index", as: "root"
   post "/create", to: "menu#create"
   get "/show/:id", to: "menu#show", as: "show"
+
 end

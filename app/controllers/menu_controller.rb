@@ -14,10 +14,10 @@ class MenuController < ApplicationController
     end
 
     def show
-        if @data[params[:id].to_i] != nil
-            render json: @data[params[:id].to_i]
+        if params[:id].to_i < @data.size
+            @data = @data[params[:id].to_i]
         else
-            render plain: "Value #{params[:id]} does not exist."
+            @error = "No item with id: #{params[:id]}" 
         end
     end
 
@@ -26,7 +26,7 @@ class MenuController < ApplicationController
         @data = [
             {item: "tea", price: 3, quantity: 0},
             {item: "coffee", price: 4, quantity: 10},
-            {item: "scone", price: 5, quantity: 20}
+            {item: "scones", price: 5, quantity: 20}
         ]
     end
 

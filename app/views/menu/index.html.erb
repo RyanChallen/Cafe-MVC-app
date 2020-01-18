@@ -6,11 +6,23 @@
         <th>Price</th>
     </tr>
 
-    <% @data.each do |item| %>
-        <tr>
-            <td><%= item[:item] %></td>
-            <td><%= item[:price] %></td>
-        </tr>
+    <% @data.each_with_index do |item, index| %>
+        <% if item[:quantity] > 0 %>
+            <tr>
+                <td>
+                    <%= link_to "#{item[:item].capitalize}", show_path(index)%>
+                    
+                    <%#The above is just generating this >>
+
+                    <%# <a href="<%= show_path(index) %><%#">
+                        <%#<%= item[:item].capitalize %>
+                    <%#</a> %>
+
+                </td>
+                
+                <td><%= "$%.2f" % item[:price] %></td>
+            </tr>
+        <% end %>
     <% end %>
 
 </table>
