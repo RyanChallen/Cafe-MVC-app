@@ -4,7 +4,7 @@ class MenuController < ApplicationController
     skip_before_action :verify_authenticity_token #NOT OK TO DO THIS IN PRODUCTION - SECURITY RISK
 
     def index
-    
+        render layout: "special"
     end
 
     def create
