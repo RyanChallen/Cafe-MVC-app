@@ -1,5 +1,9 @@
-<h2><%= @data[:item].capitalize%></h2>
+<% if defined?(@error) %>
+    <h2>Sorry this product doesn't exist.</h2>
+<% else %>
+    <h2><%= @data[:item].capitalize%></h2>
+    <p>We currently have <%= @data[:quantity]%> in stock</p> 
+    <p> Price: <%= "$%.2f" % @data[:price] %></p>
+    <%= link_to "Home", root_path() %>
+<% end %>
 
-<p>We currently have <%= @data[:quantity]%> in stock</p> 
-<p> Price: <%= "$%.2f" % @data[:price] %></p>
-<%= link_to "Home", root_path() %>
