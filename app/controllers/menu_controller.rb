@@ -4,9 +4,7 @@ class MenuController < ApplicationController
     skip_before_action :verify_authenticity_token #NOT OK TO DO THIS IN PRODUCTION - SECURITY RISK
 
     def index
-        #render plain: "Meow"
-        #render html: "<h1>Le Menu</h1>".html_safe
-        render json: @data
+    
     end
 
     def create
